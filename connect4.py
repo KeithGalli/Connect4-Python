@@ -5,7 +5,7 @@ import math
 
 BLUE = (0,0,255)
 BLACK = (0,0,0)
-RED = (255,0,0)
+RED = (165, 42, 42)
 YELLOW = (255,255,0)
 
 ROW_COUNT = 6
