@@ -3,9 +3,9 @@ import pygame
 import sys
 import math
 
+RED = (165, 42, 42)
 GREEN = (0,120,0)
 WHITE = (255,255,255)
-RED = (255,0,0)
 YELLOW = (255,255,0)
 
 ROW_COUNT = 8
