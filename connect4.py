@@ -3,13 +3,13 @@ import pygame
 import sys
 import math
 
-BLUE = (0,0,255)
-BLACK = (0,0,0)
-RED = (255,0,0)
+RED = (165, 42, 42)
+GREEN = (0,120,0)
+WHITE = (255,255,255)
 YELLOW = (255,255,0)
 
-ROW_COUNT = 6
-COLUMN_COUNT = 7
+ROW_COUNT = 8
+COLUMN_COUNT = 8
 
 def create_board():
 	board = np.zeros((ROW_COUNT,COLUMN_COUNT))
@@ -57,8 +57,8 @@ def winning_move(board, piece):
 def draw_board(board):
 	for c in range(COLUMN_COUNT):
 		for r in range(ROW_COUNT):
-			pygame.draw.rect(screen, BLUE, (c*SQUARESIZE, r*SQUARESIZE+SQUARESIZE, SQUARESIZE, SQUARESIZE))
-			pygame.draw.circle(screen, BLACK, (int(c*SQUARESIZE+SQUARESIZE/2), int(r*SQUARESIZE+SQUARESIZE+SQUARESIZE/2)), RADIUS)
+			pygame.draw.rect(screen, GREEN, (c*SQUARESIZE, r*SQUARESIZE+SQUARESIZE, SQUARESIZE, SQUARESIZE))
+			pygame.draw.circle(screen, WHITE, (int(c*SQUARESIZE+SQUARESIZE/2), int(r*SQUARESIZE+SQUARESIZE+SQUARESIZE/2)), RADIUS)
 	
 	for c in range(COLUMN_COUNT):
 		for r in range(ROW_COUNT):		
@@ -98,7 +98,7 @@ while not game_over:
 			sys.exit()
 
 		if event.type == pygame.MOUSEMOTION:
-			pygame.draw.rect(screen, BLACK, (0,0, width, SQUARESIZE))
+			pygame.draw.rect(screen, WHITE, (0,0, width, SQUARESIZE))
 			posx = event.pos[0]
 			if turn == 0:
 				pygame.draw.circle(screen, RED, (posx, int(SQUARESIZE/2)), RADIUS)
@@ -107,7 +107,7 @@ while not game_over:
 		pygame.display.update()
 
 		if event.type == pygame.MOUSEBUTTONDOWN:
-			pygame.draw.rect(screen, BLACK, (0,0, width, SQUARESIZE))
+			pygame.draw.rect(screen, WHITE, (0,0, width, SQUARESIZE))
 			#print(event.pos)
 			# Ask for Player 1 Input
 			if turn == 0:
@@ -145,4 +145,4 @@ while not game_over:
 			turn = turn % 2
 
 			if game_over:
-				pygame.time.wait(3000)
+				pygame.time.wait(5000)
