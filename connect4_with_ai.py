@@ -135,7 +135,7 @@ def minimax(board, depth, alpha, beta, maximizingPlayer):
 			return (None, score_position(board, AI_PIECE))
 	if maximizingPlayer:
 		value = -math.inf
-		column = random.choice(valid_locations)
+		best_col = []
 		for col in valid_locations:
 			row = get_next_open_row(board, col)
 			b_copy = board.copy()
@@ -143,10 +143,14 @@ def minimax(board, depth, alpha, beta, maximizingPlayer):
 			new_score = minimax(b_copy, depth-1, alpha, beta, False)[1]
 			if new_score > value:
 				value = new_score
-				column = col
+				best_col = [col]
+			elif new_score == value:
+				best_col.append(col)
 			alpha = max(alpha, value)
 			if alpha >= beta:
 				break
+
+		column = random.choice(best_col)
 		return column, value
 
 	else: # Minimizing player
